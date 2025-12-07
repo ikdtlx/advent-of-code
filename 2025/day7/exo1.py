@@ -1,17 +1,8 @@
-L= []
-cpt=-1
 with open("input.txt", "r") as f :
-    for line in f :
-        L.append(list())
-        cpt+=1
-        for elm in line :
-            if elm != '\n':
-                L[cpt].append(elm)
+    L = [list(l.strip()) for l in f]
 
 ind_s = L[0].index('S')
 L[1][ind_s]='|'
-
-
 cpt=0
 for i in range(1, len(L)-1):
     for j in range(len(L[1])):
@@ -22,5 +13,4 @@ for i in range(1, len(L)-1):
                 L[i+1][j-1]='|'
             else :
                 L[i+1][j]='|'
-
 print(cpt)
